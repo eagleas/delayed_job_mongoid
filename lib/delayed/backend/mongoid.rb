@@ -19,7 +19,7 @@ module Delayed
         field :last_error,  type: String
         field :queue,       type: String
 
-        index locked_by: -1, priority: 1, run_at: 1
+        index failed_at: -1, queue: 1, locked_by: -1, priority: 1, run_at: 1
 
         before_save :set_default_run_at
 
